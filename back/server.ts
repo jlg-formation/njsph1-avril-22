@@ -1,14 +1,14 @@
-console.log("About to start the server...");
+import express from "express";
+import serveIndex from "serve-index";
 
-const express = require("express");
-const serveIndex = require("serve-index");
+console.log("About to start the server...");
 
 const app = express();
 const port = 3000;
 const wwwDir = ".";
 
 app.use((req, res, next) => {
-  console.log("req: ", req.uri);
+  console.log("req: ", req.url);
   next();
 });
 
