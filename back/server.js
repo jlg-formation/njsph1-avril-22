@@ -8,7 +8,7 @@ const port = 3000;
 const wwwDir = ".";
 
 app.use((req, res, next) => {
-  console.log("req: ", req.url);
+  console.log("req: ", req.uri);
   next();
 });
 
