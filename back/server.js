@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(wwwDir));
+app.use(serveIndex(wwwDir, { icons: true }));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
