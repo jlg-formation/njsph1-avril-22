@@ -12,6 +12,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/api/crash", (req, res, next) => {
+  (async () => {
+    throw new Error("oups... crashed...");
+  })();
+});
+
 app.use(express.static(wwwDir));
 app.use(serveIndex(wwwDir, { icons: true }));
 
