@@ -5,7 +5,7 @@ console.log("About to start the server...");
 
 const app = express();
 const port = +process.env.PORT || 3000;
-const wwwDir = ".";
+const wwwDir = "public";
 
 app.use((req, res, next) => {
   console.log("req: ", req.url);
