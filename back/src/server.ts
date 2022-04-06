@@ -1,5 +1,6 @@
 import express from "express";
 import serveIndex from "serve-index";
+import { api } from "./api";
 
 console.log("About to start the server...");
 
@@ -12,11 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/api/crash", (req, res, next) => {
-  (async () => {
-    throw new Error("oups... crashed...");
-  })();
-});
+app.use("/api", api);
 
 app.use(express.static(wwwDir));
 app.use(serveIndex(wwwDir, { icons: true }));
