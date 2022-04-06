@@ -4,12 +4,15 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon server.ts"
+    "start": "npx nodemon -r dotenv/config src/server.ts",
+    "build": "tsc",
+    "start:prod": "node -r dotenv/config dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "serve-index": "^1.9.1"
   },
