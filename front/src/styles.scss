@@ -3,6 +3,10 @@
 @import "../node_modules/normalize.css/normalize.css";
 // @import "../node_modules/sanitize.css/sanitize.css";
 
+@import "./scss/main.scss";
+@import "./scss/table.scss";
+@import "./scss/form.scss";
+
 body {
   font-family: sans-serif;
 }
