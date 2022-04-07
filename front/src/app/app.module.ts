@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,17 +9,9 @@ import { HomeComponent } from './routes/home/home.component';
 import { LegalComponent } from './routes/legal/legal.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LegalComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    LayoutModule
-  ],
+  declarations: [AppComponent, HomeComponent, LegalComponent],
+  imports: [BrowserModule, AppRoutingModule, LayoutModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
