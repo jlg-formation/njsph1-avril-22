@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Article } from '../interfaces/article';
 import { lastValueFrom } from 'rxjs';
 
@@ -9,13 +9,23 @@ import { lastValueFrom } from 'rxjs';
 export class ArticleService {
   articles: Article[] = [{ name: 'Pince', price: 3.44, qty: 234 }];
 
-  constructor(private http: HttpClient) {
-    this.retrieveAll();
-  }
+  constructor(private http: HttpClient) {}
 
   async add(a: Article) {
     await lastValueFrom(
       this.http.post<void>('http://localhost:3000/api/articles', a)
+    );
+  }
+
+  async remove(selectedItems: Set<Article>) {
+    const ids = [...selectedItems].map((a) => a.id);
+    await lastValueFrom(
+      this.http.delete<void>('http://localhost:3000/api/articles', {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+        }),
+        body: ids,
+      })
     );
   }
 

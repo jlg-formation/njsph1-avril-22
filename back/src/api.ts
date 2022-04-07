@@ -1,9 +1,10 @@
 import { json, Router } from "express";
 import { Article } from "./interfaces/Articles";
+import { v4 as uuidv4 } from "uuid";
 
 const articles: Article[] = [
   { id: "12", name: "Tondeuse", price: 120, qty: 9 },
-  { id: "12", name: "Marteau", price: 11, qty: 45 },
+  { id: "15", name: "Marteau", price: 11, qty: 45 },
 ];
 
 const app = Router();
@@ -38,7 +39,7 @@ app.post("/articles", (req, res) => {
     try {
       const article: Article = req.body;
       console.log("article: ", article);
-      article.id = "12";
+      article.id = uuidv4();
       articles.push(article);
       res.status(201).json(article);
     } catch (err) {
