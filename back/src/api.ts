@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { json, Router } from "express";
 import { Article } from "./interfaces/Articles";
 
 const articles: Article[] = [
@@ -7,6 +7,8 @@ const articles: Article[] = [
 ];
 
 const app = Router();
+
+app.use(json());
 
 app.get("/crash", (req, res, next) => {
   (async () => {
@@ -22,6 +24,20 @@ app.get("/date", (req, res, next) => {
 
 app.get("/articles", (req, res) => {
   res.json(articles);
+});
+
+app.post("/articles", (req, res) => {
+  (async () => {
+    try {
+      const article: Article = req.body;
+      console.log("article: ", article);
+      articles.push(article);
+      res.status(201).json(article);
+    } catch (err) {
+      console.log("err: ", err);
+      res.status(500).end();
+    }
+  })();
 });
 
 export const api = app;
