@@ -23,7 +23,14 @@ app.get("/date", (req, res, next) => {
 });
 
 app.get("/articles", (req, res) => {
-  res.json(articles);
+  (async () => {
+    try {
+      res.json(articles);
+    } catch (err) {
+      console.log("err: ", err);
+      res.status(500).end();
+    }
+  })();
 });
 
 app.post("/articles", (req, res) => {
@@ -31,6 +38,7 @@ app.post("/articles", (req, res) => {
     try {
       const article: Article = req.body;
       console.log("article: ", article);
+      article.id = "12";
       articles.push(article);
       res.status(201).json(article);
     } catch (err) {

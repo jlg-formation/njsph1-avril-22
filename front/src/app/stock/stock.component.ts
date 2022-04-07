@@ -9,5 +9,7 @@ import { ArticleService } from '../services/article.service';
 export class StockComponent implements OnInit {
   constructor(public articleService: ArticleService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.articleService.retrieveAll();
+  }
 }
