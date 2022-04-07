@@ -14,10 +14,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let a of [1, 2, 3, 4, 5]">
-          <td class="name">Tournevis</td>
-          <td class="price">2.99 €</td>
-          <td class="qty">23</td>
+        <tr *ngFor="let a of articleService.articles">
+          <td class="name">{{ a.name }}</td>
+          <td class="price">{{ a.price }} €</td>
+          <td class="qty">{{ a.qty }}</td>
         </tr>
       </tbody>
     </table>
