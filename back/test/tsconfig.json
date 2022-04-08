@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "module": "CommonJS",
+    "sourceMap": true
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["../node_modules/**/*"]
+}
