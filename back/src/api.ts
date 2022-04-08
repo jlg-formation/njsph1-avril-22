@@ -1,5 +1,6 @@
 import { json, Router } from "express";
 import { Article } from "./interfaces/Articles";
+import { FileArticleService } from "./services/FileArticle.service";
 import { MongoArticleService } from "./services/MongoArticle.service";
 import { validation } from "./validation";
 import {
@@ -7,7 +8,7 @@ import {
   ArticleDeleteModel,
 } from "./validation/article.model";
 
-const articleService = new MongoArticleService();
+const articleService = new FileArticleService();
 
 const app = Router();
 

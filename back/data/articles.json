@@ -1,1 +1,20 @@
-[{"id":"12","name":"Tondeuse","price":120,"qty":9},{"id":"15","name":"Marteau","price":11,"qty":45}]
+[
+  {
+    "id": "12",
+    "name": "Tondeuse",
+    "price": 120,
+    "qty": 9
+  },
+  {
+    "id": "15",
+    "name": "Marteau",
+    "price": 11,
+    "qty": 45
+  },
+  {
+    "name": "truc",
+    "price": 2.78,
+    "qty": 45,
+    "id": "b23e4347-e38b-4307-bd05-cad3edef3641"
+  }
+]
