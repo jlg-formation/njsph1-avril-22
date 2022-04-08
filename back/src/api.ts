@@ -1,8 +1,8 @@
 import { json, Router } from "express";
 import { Article } from "./interfaces/Articles";
-import { FileArticleService } from "./services/FileArticle.service";
+import { MongoArticleService } from "./services/MongoArticle.service";
 
-const articleService = new FileArticleService();
+const articleService = new MongoArticleService();
 
 const app = Router();
 
