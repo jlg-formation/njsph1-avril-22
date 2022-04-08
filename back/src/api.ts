@@ -1,8 +1,8 @@
 import { json, Router } from "express";
 import { Article } from "./interfaces/Articles";
-import { RAMArticleService } from "./services/RAMArticles.service";
+import { FileArticleService } from "./services/FileArticle.service";
 
-const articleService = new RAMArticleService();
+const articleService = new FileArticleService();
 
 const app = Router();
 

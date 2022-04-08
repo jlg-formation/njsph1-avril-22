@@ -7,7 +7,7 @@ let articles: Article[] = [
 ];
 
 export class RAMArticleService {
-  add(article: Article): Article {
+  async add(article: Article): Promise<Article> {
     const addedArticle = { ...article };
     addedArticle.id = uuidv4();
     articles.push(addedArticle);
