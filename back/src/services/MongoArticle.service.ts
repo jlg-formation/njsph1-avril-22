@@ -28,7 +28,7 @@ init();
 
 export class MongoArticleService {
   async add(article: Article): Promise<Article> {
-    const result = await db.collection("articles").insertOne(article);
+    const result = await db.collection("articles").insertOne({ ...article });
     console.log("result: ", result);
     const addedArticle = { ...article };
     addedArticle.id = result.insertedId.toHexString();
