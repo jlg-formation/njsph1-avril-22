@@ -1,14 +1,16 @@
 import cors from "cors";
+import EventEmitter from "events";
 import express, { Express } from "express";
 import { createServer, Server } from "http";
 import serveIndex from "serve-index";
 import { api } from "./api";
 
-export class WebServer {
+export class WebServer extends EventEmitter {
   server: Server;
   port = +process.env.PORT || 3000;
 
   constructor() {
+    super();
     const app = express();
 
     const wwwDir = "public";
@@ -35,6 +37,7 @@ export class WebServer {
       });
       this.server.listen(this.port, () => {
         console.log(`Example app listening on port ${this.port}`);
+        this.emit("webserver-on");
         resolve();
       });
     });
