@@ -5,6 +5,7 @@
   "scripts": {
     "test": "mocha",
     "start": "npx nodemon -r dotenv/config src/server.ts",
+    "prebuild": "npm test",
     "build": "tsc",
     "start:prod": "node -r dotenv/config dist/server.js"
   },
